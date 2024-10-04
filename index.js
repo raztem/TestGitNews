@@ -1,5 +1,5 @@
-import { job } from "./cron.js";
-job.start();
+// import { job } from "./cron.js";
+// job.start();
 
 async function fetchNews() {
   try {
