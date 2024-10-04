@@ -3,7 +3,7 @@
 const cron = require("cron");
 const https = require("https");
 
-const backendUrl = "https://testapinews2.onrender.com/api/news"; //provider_backend
+const backendUrl = "https://testapinews.onrender.com/api/news"; //provider_backend
 const job = new cron.CronJob("*/14 * * * *", function () {
   // This function will be executed every 14 minutes.
   console.log("Restarting server");
