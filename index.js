@@ -1,4 +1,4 @@
-const { job } = require("./cron.js");
+import { job } from "./cron.js";
 job.start();
 
 async function fetchNews() {
