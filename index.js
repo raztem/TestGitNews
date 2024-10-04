@@ -2,7 +2,7 @@
 
 async function fetchNews() {
   try {
-    const response = await fetch("https://testapinews.onrender.com/api/news");
+    const response = await fetch("https://testrendmong.onrender.com/api/news");
     // const response = await fetch("http://localhost:3001/api/news");
 
     const data = await response.json();
