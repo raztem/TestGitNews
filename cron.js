@@ -1,27 +1,26 @@
-//Cron job to hit endpoint 14 cec to keep backend alive always
-
 const cron = require("cron");
 const https = require("https");
 
-const backendUrl = "https://testapinews.onrender.com/api/news"; //provider_backend
-const job = new cron.CronJob("*/14 * * * *", function () {
-  // This function will be executed every 14 minutes.
-  console.log("Restarting server");
-});
+const backendUrl = "https://testapinews.onrender.com/api/news"; // provider_backend
 
-// Platform an HTTPS request to hit any backend api.
-https
-  .get(backendUrl, (res) => {
-    if (res.statusCode === 200) {
-      console.log("Server restarted");
-    } else {
-      console.error(
-        `failed to restart server with status code: ${res.statusCode}`
-      );
-    }
-  })
-  .on("error", (err) => {
-    console.error("Error during Restart:", err.message);
-  });
+// This function will be executed every 14 minutes.
+const job = new cron.CronJob("*/14 * * * *", function () {
+  console.log("Hitting backend to keep it alive");
+
+  // HTTPS request to hit the backend API
+  https
+    .get(backendUrl, (res) => {
+      if (res.statusCode === 200) {
+        console.log("Server is kept alive");
+      } else {
+        console.error(
+          `Failed to keep server alive with status code: ${res.statusCode}`
+        );
+      }
+    })
+    .on("error", (err) => {
+      console.error("Error hitting backend:", err.message);
+    });
+});
 
 module.exports = { job };

@@ -1,4 +1,5 @@
-const job = require("./cron.js");
+const { job } = require("./cron.js");
+job.start();
 
 async function fetchNews() {
   try {
@@ -30,4 +31,3 @@ function bindData(articles) {
 }
 
 document.addEventListener("DOMContentLoaded", fetchNews);
-job.start();
