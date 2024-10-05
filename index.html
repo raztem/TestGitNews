@@ -39,6 +39,33 @@
             color: rgb(226, 43, 58);
             font-size: small;
         }
+
+        @media (max-width: 768px) {
+            .cardContainer {
+                flex-direction: column;
+                /* Вертикальне розташування на мобільних */
+                align-items: center;
+                /* Вирівнювання по центру */
+            }
+
+            .con1,
+            .con2 {
+                width: 100%;
+                /* Розтягнення контейнерів на всю ширину */
+                margin: 5px 0;
+                /* Зменшений відступ */
+            }
+
+            h3 {
+                font-size: 1.2em;
+                /* Зменшення заголовка для зручного перегляду */
+            }
+
+            .dateNews {
+                font-size: 0.8em;
+                /* Зменшення розміру тексту дати */
+            }
+        }
     </style>
 </head>
 
