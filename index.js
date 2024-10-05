@@ -3,8 +3,8 @@
 
 async function fetchNews() {
   try {
-    const response = await fetch("https://testrendmong.onrender.com/api/news");
-    // const response = await fetch("http://localhost:3001/api/news");
+    // const response = await fetch("https://testrendmong.onrender.com/api/news");
+    const response = await fetch("http://localhost:3001/api/news");
 
     const data = await response.json();
     console.log(data);
@@ -23,6 +23,9 @@ function bindData(articles) {
     articleElement.className = "article";
     articleElement.innerHTML = `
       <h2>${article.title}</h2>
+          <img src="${article.image_url}" alt="image" width="300" height="200">
+
+      <p>${article.pubDate}</p>
       <p>${article.description}</p>
       <a href="${article.link}" target="_blank">Read more</a>
     `;
