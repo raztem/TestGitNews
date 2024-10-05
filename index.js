@@ -22,12 +22,18 @@ function bindData(articles) {
     const articleElement = document.createElement("div");
     articleElement.className = "article";
     articleElement.innerHTML = `
-      <h2>${article.title}</h2>
-          <img src="${article.image_url}" alt="image" width="300" height="200">
-
-      <p>${article.pubDate}</p>
-      <p>${article.description}</p>
-      <a href="${article.link}" target="_blank">Read more</a>
+    <div class="cardContainer">
+      <div class="con1">
+        <img src="${article.image_url}" alt="image" width="200" height="100%">
+      </div>
+      <div class="con2">
+          <h3>${article.title}</h3>
+          <p class="dateNews">${article.pubDate}</p>
+          <p>${article.description ? article.description : ""}</p>
+          <a href="${article.link}" target="_blank">Read more</a>
+      </div>
+    </div>
+     
     `;
     container.appendChild(articleElement);
   });
